@@ -5,26 +5,18 @@ function createBot() {
     host: 'louvregrade12.aternos.me',
     port: 29642,
     username: 'AFK_Bot',
-    version: '1.21.1'
-  })
-
-  bot.on('login', () => {
-    console.log('Bot logged in!')
+    version: '1.21.11'
   })
 
   bot.on('spawn', () => {
-    console.log('Bot spawned!')
-
-    setInterval(() => {
-      bot.swingArm()
-    }, 30000)
+    console.log('Bot joined!')
   })
 
   bot.on('kicked', console.log)
   bot.on('error', console.log)
 
   bot.on('end', () => {
-    console.log('Disconnected! Reconnecting...')
+    console.log('Reconnecting...')
     setTimeout(createBot, 10000)
   })
 }
