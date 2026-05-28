@@ -31,6 +31,43 @@ function createBot() {
 
       bot.look(yaw, pitch, true)
     }, 10000)
+
+    // Random sprint movement every 20 seconds
+    setInterval(() => {
+
+      // Stop all movement first
+      bot.clearControlStates()
+
+      const directions = [
+        'forward',
+        'back',
+        'left',
+        'right'
+      ]
+
+      // Pick random direction
+      const direction =
+        directions[Math.floor(Math.random() * directions.length)]
+
+      console.log(`Sprinting ${direction}`)
+
+      // Enable sprint
+      bot.setControlState('sprint', true)
+
+      // Move in random direction
+      bot.setControlState(direction, true)
+
+      // Small chance to jump while moving
+      if (Math.random() > 0.5) {
+        bot.setControlState('jump', true)
+      }
+
+      // Stop after 3 seconds
+      setTimeout(() => {
+        bot.clearControlStates()
+      }, 3000)
+
+    }, 20000)
   })
 
   bot.on('kicked', (reason) => {
