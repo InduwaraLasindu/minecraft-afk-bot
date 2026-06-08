@@ -4,7 +4,7 @@ function createBot() {
   const bot = mineflayer.createBot({
     host: 'matheesha805911.aternos.me',
     port: 55695,
-    username: 'AFK_Bot_67',
+    username: 'AFK_Bot_4',
     version: '1.21.11'
   })
 
